@@ -1,24 +1,80 @@
-# README
+# Rails CRUD Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails CRUD application with user authentication using Devise and MySQL as the database.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+- Ruby 3.x
+- Rails 7.x
+- MySQL 9
+- Node.js and Yarn (for asset compilation)
+- Docker and Docker Compose (optional, for containerized setup)
 
-* System dependencies
+## Installation
 
-* Configuration
+### Clone the repository
 
-* Database creation
+```bash
+git clone <repository-url>
+cd rails-crud
+```
 
-* Database initialization
+### Install dependencies
 
-* How to run the test suite
+```bash
+bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Database Setup
 
-* Deployment instructions
+### Option 1: Using local MySQL
 
-* ...
+1. Make sure MySQL is running on your local machine
+2. Update database credentials in your environment:
+
+```bash
+export DATABASE_USERNAME=root
+export DATABASE_PASSWORD=password
+```
+
+Or update the `config/database.yml` file directly with your MySQL credentials.
+
+3. Create and initialize the database:
+
+```bash
+rails db:create db:migrate
+```
+
+### Option 2: Using Docker
+
+1. Start the MySQL container:
+
+```bash
+docker-compose up -d
+```
+
+2. Initialize the database:
+
+```bash
+rails db:create db:migrate
+```
+
+## Running the Application
+
+### Start the Rails server:
+
+```bash
+rails server
+# or
+rails s
+```
+
+The application will be available at http://localhost:3000
+
+## Running Tests
+
+```bash
+rails test
+# or for system tests
+rails test:system
+```
