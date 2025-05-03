@@ -6,7 +6,7 @@ This is a Ruby on Rails CRUD application with user authentication using Devise a
 
 - Ruby 3.x
 - Rails 7.x
-- MySQL 9
+- MySQL 8
 - Node.js and Yarn (for asset compilation)
 - Docker and Docker Compose (optional, for containerized setup)
 
@@ -26,26 +26,6 @@ bundle install
 ```
 
 ## Database Setup
-
-### Option 1: Using local MySQL
-
-1. Make sure MySQL is running on your local machine
-2. Update database credentials in your environment:
-
-```bash
-export DATABASE_USERNAME=root
-export DATABASE_PASSWORD=password
-```
-
-Or update the `config/database.yml` file directly with your MySQL credentials.
-
-3. Create and initialize the database:
-
-```bash
-rails db:create db:migrate
-```
-
-### Option 2: Using Docker
 
 1. Start the MySQL container:
 
