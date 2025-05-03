@@ -9,7 +9,7 @@
     <p class="lead">
         <%= link_to "Edit", edit_friend_path(@friend), class: "btn btn-secondary" %>
         <%= link_to "Back", friends_path, class: "btn btn-dark" %>
-        <%= button_to "Destroy", @friend, method: :delete, class: "btn btn-danger" %>
+        <%= button_to "Destroy", @friend, data: {  turbo_confirm: "Are you sure?" },method: :delete, class: "btn btn-danger" %>
     </p>
 </div>
 

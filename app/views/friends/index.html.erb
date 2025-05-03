@@ -4,36 +4,29 @@
 <table class="table table-bordered table-hover">
     <thead class="thead-dark">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Twitter</th>
             <th>User ID</th>
-            <th colspan="3">Actions</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <% @friends.each do |friend| %>
         <tr>
-            <td><%= friend.first_name %></td>
-            <td><%= friend.last_name %></td>
+            <td>
+                <%= link_to friend.first_name + " " + friend.last_name, friend %>
+            </td>
             <td><%= friend.email %></td>
             <td><%= friend.phone %></td>
             <td><%= friend.twitter %></td>
             <td><%= friend.user_id %></td>
-            <td>
-                <%= link_to "Show", friend %>
-            </td>
             <% if friend.user == current_user%>
             <td>
-                <%= link_to "Edit", edit_friend_path(friend) %>
-            </td>
-            <td>
-                <%= button_to "Destroy", friend, method: :delete, class: "btn btn-danger" %>
+                <%= button_to "Destroy", friend, data: { confirm: "XXX?", turbo_confirm: "Are you sure?" },method: :delete, class: "btn btn-danger" %>
             </td>
             <% else %>
-            <td></td>
             <td></td>
             <% end %>
         </tr>
