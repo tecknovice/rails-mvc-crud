@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: rails_crud_development
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+
+  web:
+    image: rails_crud
+    depends_on:
+      - db
+    environment:
+      RAILS_MASTER_KEY: 1eb855642e430b6b88b2ecc1b9123b31
+      DATABASE_HOST: "db"
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysql_data:
