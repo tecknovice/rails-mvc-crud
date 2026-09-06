@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   db:
     image: mysql:8.0
@@ -17,9 +15,11 @@ services:
       retries: 10
 
   web:
-    image: rails_crud
+    build: .
+    image: rails-mvc-crud
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       RAILS_MASTER_KEY: 1eb855642e430b6b88b2ecc1b9123b31
       DATABASE_HOST: "db"
