@@ -3,6 +3,7 @@ require "application_system_test_case"
 class FriendsTest < ApplicationSystemTestCase
   setup do
     @friend = friends(:one)
+    sign_in_as users(:one)
   end
 
   test "visiting the index" do
@@ -27,7 +28,7 @@ class FriendsTest < ApplicationSystemTestCase
 
   test "should update Friend" do
     visit friend_url(@friend)
-    click_on "Edit this friend", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Email", with: @friend.email
     fill_in "First name", with: @friend.first_name
@@ -42,7 +43,7 @@ class FriendsTest < ApplicationSystemTestCase
 
   test "should destroy Friend" do
     visit friend_url(@friend)
-    click_on "Destroy this friend", match: :first
+    accept_confirm { click_on "Destroy", match: :first }
 
     assert_text "Friend was successfully destroyed"
   end
