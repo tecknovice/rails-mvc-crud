@@ -13,3 +13,9 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+class ActionDispatch::IntegrationTest
+  # Gives tests sign_in / sign_out, needed since FriendsController is behind
+  # authenticate_user! and scopes records to current_user.
+  include Devise::Test::IntegrationHelpers
+end

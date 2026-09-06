@@ -83,7 +83,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (7.0.2)
+    brakeman (8.0.6)
       racc
     builder (3.3.0)
     capybara (3.40.0)
@@ -184,6 +184,8 @@ GEM
     nokogiri (1.18.8-arm-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.8-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.8-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.18.8-x86_64-darwin)
       racc (~> 1.4)
@@ -328,6 +330,7 @@ GEM
     thor (1.3.2)
     thruster (0.1.13)
     thruster (0.1.13-aarch64-linux)
+    thruster (0.1.13-arm64-darwin)
     thruster (0.1.13-x86_64-darwin)
     thruster (0.1.13-x86_64-linux)
     timeout (0.4.3)
@@ -363,6 +366,7 @@ PLATFORMS
   aarch64-linux-musl
   arm-linux-gnu
   arm-linux-musl
+  arm64-darwin-23
   x86_64-darwin-23
   x86_64-linux
   x86_64-linux-gnu

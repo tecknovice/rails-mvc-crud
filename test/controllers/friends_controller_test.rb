@@ -2,7 +2,9 @@ require "test_helper"
 
 class FriendsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
     @friend = friends(:one)
+    sign_in @user
   end
 
   test "should get index" do
